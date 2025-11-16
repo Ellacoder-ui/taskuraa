@@ -1,9 +1,10 @@
 package com.taskura.taskuraa;
 
-import javafx.application.Application;
-
+/**
+ * A simple launcher class to fix module path issues in some environments.
+ */
 public class Launcher {
     public static void main(String[] args) {
-        Application.launch(HelloApplication.class, args);
+        HelloApplication.main(args);
     }
 }

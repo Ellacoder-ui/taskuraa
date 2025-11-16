@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane prefHeight="660" prefWidth="1018" style="-fx-background-color: white; -fx-font-family: 'Poppins'; -fx-font-size: 13px;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- ======= TOP HEADER ======= -->
+    <top>
+        <HBox alignment="CENTER" prefHeight="50" style="-fx-background-color: #3D216B;">
+            <Label style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 22;" text="TASKURA" />
+        </HBox>
+    </top>
+
+    <!-- ======= LEFT SIDEBAR ======= -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="180" spacing="20" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee;">
+            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" spacing="5">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Mike T.">
+               <graphic>
+                  <Circle fill="#320a48" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+               </graphic></Label>
+                <Label style="-fx-text-fill: #666;" text="Student">
+               <VBox.margin>
+                  <Insets bottom="-10.0" left="60.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets top="-40.0" />
+               </padding></Label>
+            </VBox>
+
+            <VBox alignment="CENTER_LEFT" spacing="10">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Home">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@home_4518661.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+                <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: #f3f3f3; -fx-text-fill: #333; -fx-font-weight: bold; -fx-cursor: hand;" text="Calendar">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@calendar_11543074.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+                <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Tasks">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@task_18915932.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+                <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Settings">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@settings_10704539.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- ======= CENTER CONTENT ======= -->
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <Label style="-fx-font-weight: bold; -fx-font-size: 18;" text="15 October 2020" />
+         <TextArea prefHeight="104.0" prefWidth="518.0" text="Org Meeting" />
+
+            <!-- Org Meeting Cards -->
+            <VBox spacing="15" />
+         <TextArea layoutX="30.0" layoutY="77.0" prefHeight="104.0" prefWidth="518.0" text="Org Meeting" />
+
+            <!-- Schedule Section -->
+            <VBox spacing="10">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 16;" text="Schedule" />
+                <TextField promptText="Search Schedule, holidays and appointments" style="-fx-background-radius: 10; -fx-border-color: #ddd;" />
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-size: 18; -fx-text-fill: #333;" text="★" />
+                    <VBox>
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #333;" text="Org Meeting" />
+                        <Label style="-fx-text-fill: #777;" text="Date, time and etc" />
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <Button fx:id="newButton" style="-fx-background-color: #3D216B; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 5 15; -fx-cursor: hand;" text="+ New" />
+        </VBox>
+    </center>
+
+    <!-- ======= RIGHT APPOINTMENTS PANEL ======= -->
+    <right>
+        <VBox alignment="TOP_CENTER" prefWidth="280" spacing="20" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold; -fx-font-size: 20; -fx-text-fill: #333;" text="Appointments" />
+            <HBox alignment="CENTER_RIGHT" spacing="5">
+                <Label style="-fx-text-fill: #3D216B; -fx-font-size: 12;" text="Add appointment" />
+                <Button fx:id="addAppointmentButton" style="-fx-background-color: #3D216B; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold; -fx-cursor: hand;" text="+" />
+            </HBox>
+
+            <!-- Appointment List -->
+            <VBox spacing="15">
+                <VBox>
+                    <Label prefHeight="19.0" prefWidth="241.0" style="-fx-font-weight: bold; -fx-text-fill: #333;" text="15 October                                          ..." />
+                    <Label style="-fx-text-fill: #333;" text="09:00  Marketing - 5 posts on Instagram" />
+                    <Label style="-fx-text-fill: #333;" text="11:00  Work - Platform Concept" />
+                </VBox>
+
+                <VBox>
+                    <Label prefHeight="19.0" prefWidth="241.0" style="-fx-font-weight: bold; -fx-text-fill: #333;" text="16 October                                         ..." />
+                    <Label style="-fx-text-fill: #333;" text="09:00  Meeting - Sleep App" />
+                    <Label style="-fx-text-fill: #333;" text="15:00  Animation - Create Post For App" />
+                </VBox>
+
+                <VBox>
+                    <Label prefHeight="19.0" prefWidth="238.0" style="-fx-font-weight: bold; -fx-text-fill: #333;" text="17 October                                        ..." />
+                    <Label style="-fx-text-fill: #333;" text="09:00  Marketing - 2 posts on Instagram" />
+                    <Label style="-fx-text-fill: #333;" text="10:00  Animation - Platform App Concept" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </right>
+
+</BorderPane>
