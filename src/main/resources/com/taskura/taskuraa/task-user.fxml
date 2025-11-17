@@ -2,225 +2,91 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskura.taskuraa.TaskuserController">
 
     <!-- TOP BAR -->
     <top>
         <AnchorPane prefHeight="60.0" style="-fx-background-color: #3C2A52;">
-            <children>
-                <Label layoutX="466.0" layoutY="16.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="TASKURA" textFill="WHITE" />
-            </children>
+            <Label layoutX="466.0" layoutY="16.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="TASKURA" textFill="WHITE" />
         </AnchorPane>
     </top>
 
     <!-- LEFT SIDEBAR -->
     <left>
         <VBox prefWidth="200.0" style="-fx-background-color: white;">
-            <children>
 
-                <!-- USER INFO -->
-                <VBox alignment="TOP_CENTER" prefWidth="180" spacing="20" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee;"/>
-                <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" spacing="5">
-                    <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                    </padding>
-                    <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Mike T.">
-                        <graphic>
-                            <Circle fill="#320a48" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-                        </graphic></Label>
-                    <Label style="-fx-text-fill: #666;" text="Student">
-                                <VBox.margin>
-                                    <Insets bottom="-10.0" left="60.0" />
-                                </VBox.margin>
-                                <padding>
-                                    <Insets top="-40.0" />
-                                </padding></Label>
-                        </VBox>
+            <!-- USER INFO -->
+            <VBox alignment="TOP_CENTER" prefWidth="180" spacing="20" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee;" />
+            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" spacing="5">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Mike T.">
+                    <graphic>
+                        <Circle fill="#320a48" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                    </graphic>
+                </Label>
+                <Label style="-fx-text-fill: #666;" text="Student" />
+            </VBox>
 
-                <!-- NAVIGATION BUTTONS -->
-                <VBox spacing="10" style="-fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0;">
-                    <padding><Insets bottom="10" top="10" /></padding>
-                    <children>
+            <!-- NAVIGATION BUTTONS -->
+            <VBox spacing="10" style="-fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0;">
+                <padding><Insets bottom="10" top="10" /></padding>
+                <Button fx:id="homeButton" alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: #F0F0F0; -fx-font-size: 14px;" text="Home">
+                    <padding><Insets left="20" /></padding>
+                </Button>
+                <Button fx:id="calendarButton" alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: transparent; -fx-font-size: 14px;" text="Calendar">
+                    <padding><Insets left="20" /></padding>
+                </Button>
+                <Button fx:id="tasksButton" alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: transparent; -fx-font-size: 14px;" text="Tasks">
+                    <padding><Insets left="20" /></padding>
+                </Button>
+                <Button alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: transparent; -fx-font-size: 14px;" text="Settings">
+                    <padding><Insets left="20" /></padding>
+                </Button>
+            </VBox>
 
-                        <!-- HOME -->
-                        <Button fx:id="homeButton" alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: #F0F0F0; -fx-font-size: 14px;" text="Home">
-                            <padding><Insets left="20" /></padding>
-                            <graphic>
-                                <ImageView fitHeight="18" fitWidth="18" preserveRatio="true">
-                                    <image><Image url="@home.png" /></image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
+            <!-- ADD TASK BUTTON -->
+            <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+                <padding><Insets bottom="20" left="20" /></padding>
+            </VBox>
 
-                        <!-- CALENDAR -->
-                        <Button fx:id="calendarButton" alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: transparent; -fx-font-size: 14px;" text="Calendar">
-                            <padding><Insets left="20" /></padding>
-                            <graphic>
-                                <ImageView fitHeight="18" fitWidth="18" preserveRatio="true">
-                                    <image><Image url="@calendar.png" /></image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-
-                        <!-- TASKS -->
-                        <Button fx:id="tasksButton" alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: transparent; -fx-font-size: 14px;" text="Tasks">
-                            <padding><Insets left="20" /></padding>
-                            <graphic>
-                                <ImageView fitHeight="18" fitWidth="18" preserveRatio="true">
-                                    <image><Image url="@tasks.png" /></image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-
-                        <!-- SETTINGS -->
-                        <Button alignment="CENTER_LEFT" prefHeight="40" prefWidth="200" style="-fx-background-color: transparent; -fx-font-size: 14px;" text="Settings">
-                            <padding><Insets left="20" /></padding>
-                            <graphic>
-                                <ImageView fitHeight="18" fitWidth="18" preserveRatio="true">
-                                    <image><Image url="@settings.png" /></image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-
-                    </children>
-                </VBox>
-
-                <!-- ADD TASK BUTTON -->
-                <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
-                    <padding><Insets bottom="20" left="20" /></padding>
-                    <children>
-                        <Button prefHeight="35" prefWidth="35" style="-fx-background-color: #FF5722; -fx-background-radius: 50; -fx-font-size: 18px;" text="+" textFill="white" />
-                        <Label style="-fx-opacity: 0.6; -fx-font-size: 12px;" text="Add more tasks" />
-                    </children>
-                </VBox>
-
-            </children>
         </VBox>
     </left>
 
     <!-- MAIN CENTER AREA -->
     <center>
         <BorderPane style="-fx-background-color: #F8F8F8;">
-
             <center>
                 <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
-                    <content>
+                    <VBox spacing="20" style="-fx-background-color: white;">
+                        <padding><Insets bottom="20" left="30" right="30" top="20" /></padding>
 
-                        <VBox spacing="20" style="-fx-background-color: white;">
-                            <padding><Insets bottom="20" left="30" right="30" top="20" /></padding>
-                            <children>
+                        <!-- DATE ROW -->
+                        <HBox alignment="CENTER_LEFT">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="15 October 2020" />
+                            <HBox alignment="CENTER_RIGHT" spacing="10" HBox.hgrow="ALWAYS">
+                                <Label text="1 of 5 completed" />
+                            </HBox>
+                        </HBox>
 
-                                <!-- DATE ROW -->
-                                <HBox alignment="CENTER_LEFT">
-                                    <children>
-                                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="15 October 2020" />
-                                        <HBox alignment="CENTER_RIGHT" spacing="10" HBox.hgrow="ALWAYS">
-                                            <children>
-                                                <Label text="1 of 5 completed" />
-                                                <AnchorPane prefHeight="5" prefWidth="60" style="-fx-background-color: #E0E0E0; -fx-background-radius: 5;">
-                                                    <children>
-                                                        <AnchorPane prefHeight="5" prefWidth="25" style="-fx-background-color: #3C2A52; -fx-background-radius: 5;" />
-                                                    </children>
-                                                </AnchorPane>
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </HBox>
+                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Weekly Tasks" />
 
-                                <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Weekly Tasks" />
+                        <!-- ACTION BUTTONS -->
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Button style="-fx-background-color: transparent; -fx-border-color: #C0C0C0; -fx-border-radius: 5;" text="Archive" />
+                            <Button fx:id="newButton" style="-fx-background-color: #3C2A52; -fx-background-radius: 5;" text="+ New" textFill="white" />
+                        </HBox>
 
-                                <!-- ACTION BUTTONS -->
-                                <HBox alignment="CENTER_RIGHT" spacing="10">
-                                    <children>
-                                        <Button style="-fx-background-color: transparent; -fx-border-color: #C0C0C0; -fx-border-radius: 5;" text="Archive" />
-                                        <Button fx:id="newButton" style="-fx-background-color: #3C2A52; -fx-background-radius: 5;" text="+ New" textFill="white" />
-                                    </children>
-                                </HBox>
+                        <!-- SEARCH -->
+                        <TextField fx:id="searchTasksField" promptText="Search tasks" />
 
-                                <!-- SEARCH -->
-                                <TextField fx:id="searchTasksField" promptText="Search tasks" />
-
-                                <!-- TASK LIST -->
-                                <VBox fx:id="taskListContainer" spacing="10">
-
-                                    <!-- TASK ENTRY (1) -->
-                                    <HBox alignment="CENTER_LEFT" prefHeight="50" spacing="15" style="-fx-background-color: #F0F0FF; -fx-background-radius: 10;">
-                                        <padding><Insets left="15" right="15" /></padding>
-                                        <children>
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <VBox HBox.hgrow="ALWAYS">
-                                                <children>
-                                                    <Label text="Activity I" />
-                                                    <Label style="-fx-opacity: 0.6; -fx-font-size: 10;" text="qjdfljsdlfjawhfyhf" />
-                                                </children>
-                                            </VBox>
-                                            <Label style="-fx-background-color: #E0E0E0; -fx-padding: 3 6; -fx-background-radius: 10;" text="1" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                        </children>
-                                    </HBox>
-
-                                    <!-- TASK ENTRY (2) -->
-                                    <HBox alignment="CENTER_LEFT" prefHeight="50" spacing="15">
-                                        <padding><Insets left="15" right="15" /></padding>
-                                        <children>
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <VBox HBox.hgrow="ALWAYS">
-                                                <children>
-                                                    <Label text="Developing" />
-                                                    <Label style="-fx-opacity: 0.6; -fx-font-size: 10;" text="afdslsfgsfsefsef" />
-                                                </children>
-                                            </VBox>
-                                            <Label style="-fx-background-color: #E0E0E0; -fx-padding: 3 6; -fx-background-radius: 10;" text="1" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                        </children>
-                                    </HBox>
-
-                                    <!-- TASK ENTRY (3) -->
-                                    <HBox alignment="CENTER_LEFT" prefHeight="50" spacing="15">
-                                        <padding><Insets left="15" right="15" /></padding>
-                                        <children>
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <VBox HBox.hgrow="ALWAYS">
-                                                <children>
-                                                    <Label text="Project 1" />
-                                                    <Label style="-fx-opacity: 0.6; -fx-font-size: 10;" text="sferfgsdfg" />
-                                                </children>
-                                            </VBox>
-                                            <Button prefHeight="25" prefWidth="25" style="-fx-background-color: transparent; -fx-border-color: #C0C0C0; -fx-border-radius: 50;" text="+" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                        </children>
-                                    </HBox>
-
-                                    <!-- TASK ENTRY (4) -->
-                                    <HBox alignment="CENTER_LEFT" prefHeight="50" spacing="15">
-                                        <padding><Insets left="15" right="15" /></padding>
-                                        <children>
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <VBox HBox.hgrow="ALWAYS">
-                                                <children>
-                                                    <Label text="OOP Assignment" />
-                                                    <Label style="-fx-opacity: 0.6; -fx-font-size: 10;" text="dgfdgdfg" />
-                                                </children>
-                                            </VBox>
-                                            <Button prefHeight="25" prefWidth="25" style="-fx-background-color: transparent; -fx-border-color: #C0C0C0; -fx-border-radius: 50;" text="+" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                            <ImageView fitHeight="18" fitWidth="18" preserveRatio="true" />
-                                        </children>
-                                    </HBox>
-
-                                </VBox>
-
-                            </children>
-                        </VBox>
-
-                    </content>
+                        <!-- TASK LIST -->
+                        <VBox fx:id="taskListContainer" spacing="10" />
+                    </VBox>
                 </ScrollPane>
             </center>
 
@@ -228,13 +94,11 @@
             <right>
                 <VBox alignment="TOP_CENTER" prefWidth="300" style="-fx-background-color: white;">
                     <padding><Insets left="20" right="20" top="20" /></padding>
-                    <children>
-                        <Label fx:id="activityTitleLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Activity 1">
-                            <VBox.margin><Insets bottom="30" /></VBox.margin>
-                        </Label>
-                        <Label text="Deadline:" />
-                        <Label fx:id="deadlineLabel" style="-fx-padding: 0 10 0 0;" text="Text preview only" />
-                    </children>
+                    <Label fx:id="activityTitleLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Activity 1">
+                        <VBox.margin><Insets bottom="30" /></VBox.margin>
+                    </Label>
+                    <Label text="Deadline:" />
+                    <Label fx:id="deadlineLabel" style="-fx-padding: 0 10 0 0;" text="Text preview only" />
                 </VBox>
             </right>
 
