@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.taskura.taskuraa.HelloController">
+
+    <left>
+        <VBox spacing="20" prefWidth="220" style="-fx-background-color: #f4f4f4;">
+            <padding><Insets top="20" left="20" right="20" bottom="20"/></padding>
+
+            <!-- USER INFO -->
+            <HBox spacing="10">
+                <ImageView fitWidth="40" fitHeight="40" fx:id="userAvatar"/>
+                <VBox>
+                    <Label text="Mike T." />
+                    <Label text="Student"/>
+                </VBox>
+            </HBox>
+
+            <Separator/>
+
+            <!-- MENU BUTTONS -->
+            <VBox spacing="15">
+                <Button fx:id="btnHome" text="Home" prefWidth="180"/>
+                <Button fx:id="btnCalendar" text="Calendar" prefWidth="180"/>
+                <Button fx:id="btnTasks" text="Tasks" prefWidth="180"/>
+                <Button fx:id="btnSettings" text="Settings" prefWidth="180"/>
+            </VBox>
+
+            <!-- PUSH CONTENT TO BOTTOM -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- ADD MORE TASKS -->
+            <Button fx:id="btnAddTask" text="Add more tasks" />
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20" padding="20">
+
+            <Label text="15 October 2020" />
+            <Label text="Weekly Tasks Archive" />
+            <Button fx:id="btnReturn" text="Return" />
+
+            <TextField fx:id="searchField" promptText="Search tasks"/>
+
+            <HBox spacing="10" style="-fx-background-color: #e6e6e6; -fx-padding: 15;">
+                <Button text="Star"/>
+                <VBox>
+                    <Label text="Activity 2"/>
+                    <Label text="Description..."/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="!"/>
+                <Button fx:id="deleteBtn" text="Delete"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="20" padding="20" prefWidth="300">
+            <Label text="Activity 2"/>
+            <Label text="Deadline:"/>
+            <Label text="Text preview only"/>
+
+            <ImageView fx:id="taskImage" fitWidth="80" fitHeight="80"/>
+        </VBox>
+    </right>
+
+</BorderPane>
