@@ -41,7 +41,7 @@
                 </padding>
                 <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Home">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@home_4518661.png" />
                      </image>
@@ -49,7 +49,7 @@
                </graphic></Button>
                 <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: #f3f3f3; -fx-text-fill: #333; -fx-font-weight: bold; -fx-cursor: hand;" text="Calendar">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@calendar_11543074.png" />
                      </image>
@@ -57,7 +57,7 @@
                </graphic></Button>
                 <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Tasks">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@task_18915932.png" />
                      </image>
@@ -65,7 +65,7 @@
                </graphic></Button>
                 <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Settings">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@settings_10704539.png" />
                      </image>
