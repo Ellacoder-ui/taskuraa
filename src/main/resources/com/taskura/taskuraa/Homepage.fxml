@@ -29,7 +29,7 @@
                     </graphic>
                     <text>Home</text>
                 </Button>
-                <Button fx:id="taskBtn" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #333; -fx-font-size: 16; -fx-alignment: CENTER_LEFT;">
+                <Button fx:id="taskBtn" onAction="#handleTaskClick" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #333; -fx-font-size: 16; -fx-alignment: CENTER_LEFT;">
                     <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                             <image>
@@ -102,20 +102,9 @@
     <!-- Right Appointments Panel -->
     <right>
         <VBox spacing="12" style="-fx-background-color: #ffffff; -fx-padding: 25;">
-            <HBox alignment="CENTER_RIGHT">
-                <Label style="-fx-font-weight: bold; -fx-font-size: 20;" text="Appointments" />
-            </HBox>
-            <Button style="-fx-background-color: #5C3B8C; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-size: 16;" text="+ Add appointment" />
+            <HBox alignment="CENTER_RIGHT" />
 
-            <VBox spacing="12" style="-fx-padding: 10;">
-                <Label style="-fx-font-weight: bold; -fx-font-size: 16;" text="15 October" />
-                <Label style="-fx-font-size: 14;" text="09:00 - Marketing: 5 posts on Instagram" wrapText="true" />
-                <Label style="-fx-font-size: 14;" text="11:00 - Work: Platform Concept" wrapText="true" />
-
-                <Label style="-fx-font-weight: bold; -fx-font-size: 16; -fx-padding: 10 0 0 0;" text="16 October" />
-                <Label style="-fx-font-size: 14;" text="09:00 - Design: Sleep App" wrapText="true" />
-                <Label style="-fx-font-size: 14;" text="15:00 - Animation: Create Post for App" wrapText="true" />
-            </VBox>
+            <VBox spacing="12" style="-fx-padding: 10;" />
         </VBox>
     </right>
 
