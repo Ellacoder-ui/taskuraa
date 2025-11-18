@@ -16,9 +16,6 @@ public class TaskuserController {
     private Button homeButton;
 
     @FXML
-    private Button calendarButton;
-
-    @FXML
     private Button tasksButton;
 
     @FXML
@@ -34,7 +31,7 @@ public class TaskuserController {
     private Label activityTitleLabel;
 
     @FXML
-    private TextArea deadlineLabel; // Display description + deadline
+    private TextArea deadlineLabel;
 
     private final List<Task> allTasks = new ArrayList<>();
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -43,12 +40,14 @@ public class TaskuserController {
     public void initialize() {
         refreshTaskList(allTasks);
 
-        homeButton.setOnAction(e -> System.out.println("Home button clicked."));
-        calendarButton.setOnAction(e -> System.out.println("Calendar button clicked."));
-        tasksButton.setOnAction(e -> System.out.println("Tasks button clicked."));
+        homeButton.setOnAction(e -> System.out.println("Home clicked."));
+        tasksButton.setOnAction(e -> System.out.println("Tasks clicked."));
+
         newButton.setOnAction(e -> onNewTaskClicked());
 
-        searchTasksField.textProperty().addListener((obs, oldText, newText) -> filterTasks(newText));
+        searchTasksField.textProperty().addListener(
+                (obs, oldText, newText) -> filterTasks(newText)
+        );
     }
 
     private void refreshTaskList(List<Task> tasks) {
@@ -60,17 +59,16 @@ public class TaskuserController {
 
             Label taskName = new Label(task.getName());
             taskName.setStyle("-fx-font-weight: bold; -fx-font-size: 14;");
+
             Label taskDesc = new Label(task.getDescription());
             taskDesc.setWrapText(true);
 
-            // Buttons below task info
             Button updateBtn = new Button("Update");
             Button deleteBtn = new Button("Delete");
             HBox buttonsBox = new HBox(10, updateBtn, deleteBtn);
 
             taskBox.getChildren().addAll(taskName, taskDesc, buttonsBox);
 
-            // Click task to show details in TextArea
             taskBox.setOnMouseClicked(e -> {
                 activityTitleLabel.setText(task.getName());
                 String displayText = "Description:\n" + task.getDescription() +
@@ -78,13 +76,11 @@ public class TaskuserController {
                 deadlineLabel.setText(displayText);
             });
 
-            // Delete task
             deleteBtn.setOnAction(e -> {
                 allTasks.remove(task);
                 refreshTaskList(allTasks);
             });
 
-            // Update task
             updateBtn.setOnAction(e -> onUpdateTaskClicked(task));
 
             taskListContainer.getChildren().add(taskBox);
@@ -119,18 +115,22 @@ public class TaskuserController {
 
         DatePicker deadlinePicker = new DatePicker();
 
-        VBox content = new VBox(10);
-        content.getChildren().addAll(
+        VBox content = new VBox(10,
                 new Label("Name:"), nameField,
                 new Label("Description:"), descArea,
                 new Label("Deadline:"), deadlinePicker
         );
+
         dialog.getDialogPane().setContent(content);
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == addButtonType) {
-                String deadlineStr = (deadlinePicker.getValue() != null) ? deadlinePicker.getValue().format(formatter) : "";
-                return new Task(nameField.getText().trim(), descArea.getText().trim(), deadlineStr);
+                String deadlineStr = (deadlinePicker.getValue() != null)
+                        ? deadlinePicker.getValue().format(formatter)
+                        : "";
+                return new Task(nameField.getText().trim(),
+                        descArea.getText().trim(),
+                        deadlineStr);
             }
             return null;
         });
@@ -158,18 +158,22 @@ public class TaskuserController {
             deadlinePicker.setValue(java.time.LocalDate.parse(task.getDeadline(), formatter));
         }
 
-        VBox content = new VBox(10);
-        content.getChildren().addAll(
+        VBox content = new VBox(10,
                 new Label("Name:"), nameField,
                 new Label("Description:"), descArea,
                 new Label("Deadline:"), deadlinePicker
         );
+
         dialog.getDialogPane().setContent(content);
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == updateButtonType) {
-                String deadlineStr = (deadlinePicker.getValue() != null) ? deadlinePicker.getValue().format(formatter) : "";
-                return new Task(nameField.getText().trim(), descArea.getText().trim(), deadlineStr);
+                String deadlineStr = (deadlinePicker.getValue() != null)
+                        ? deadlinePicker.getValue().format(formatter)
+                        : "";
+                return new Task(nameField.getText().trim(),
+                        descArea.getText().trim(),
+                        deadlineStr);
             }
             return null;
         });
@@ -182,7 +186,9 @@ public class TaskuserController {
         });
     }
 
-    // Inner Task class
+    // ────────────────────────────────────────────────
+    // INNER TASK CLASS
+    // ────────────────────────────────────────────────
     public static class Task {
         private String name;
         private String description;

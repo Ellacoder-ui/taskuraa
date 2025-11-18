@@ -51,31 +51,12 @@
                     </graphic>
                 </Button>
 
-                <Button fx:id="CalendarBtn" alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: #f3f3f3; -fx-text-fill: #333; -fx-font-weight: bold;" text="Calendar">
-                    <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@calendar.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
 
                 <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Tasks">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@tasks.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-
-                <Button alignment="TOP_LEFT" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;" text="Settings">
-                    <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@settings.png" />
                             </image>
                         </ImageView>
                     </graphic>

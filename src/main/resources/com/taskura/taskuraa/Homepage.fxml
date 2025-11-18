@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<BorderPane prefHeight="700" prefWidth="1200" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="700" prefWidth="1200" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskura.taskuraa.HomepageController">
 
     <!-- Left Sidebar -->
     <left>
@@ -24,41 +23,21 @@
                     <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                             <image>
-                                <Image url="@home.png"/>
+                                <Image url="@home.png" />
                             </image>
                         </ImageView>
                     </graphic>
                     <text>Home</text>
                 </Button>
-                <Button prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #333; -fx-font-size: 16; -fx-alignment: CENTER_LEFT;">
+                <Button fx:id="taskBtn" prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #333; -fx-font-size: 16; -fx-alignment: CENTER_LEFT;">
                     <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                             <image>
-                                <Image url="@calendar.png"/>
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <text>Calendar</text>
-                </Button>
-                <Button prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #333; -fx-font-size: 16; -fx-alignment: CENTER_LEFT;">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@tasks.png"/>
+                                <Image url="@tasks.png" />
                             </image>
                         </ImageView>
                     </graphic>
                     <text>Tasks</text>
-                </Button>
-                <Button prefWidth="160" style="-fx-background-color: transparent; -fx-text-fill: #333; -fx-font-size: 16; -fx-alignment: CENTER_LEFT;">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@settings.png"/>
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <text>Settings</text>
                 </Button>
             </VBox>
         </VBox>
@@ -90,12 +69,10 @@
             <!-- Weekly Tasks Header with Buttons -->
             <HBox alignment="CENTER_LEFT" spacing="15">
                 <Label style="-fx-font-weight: bold; -fx-font-size: 24;" text="Weekly Tasks" />
-                <Region HBox.hgrow="ALWAYS"/>
+                <Region HBox.hgrow="ALWAYS" />
                 <HBox spacing="10">
-                    <Button text="Archive"
-                            style="-fx-background-color: #cccccc; -fx-text-fill: black; -fx-background-radius: 5; -fx-font-size: 18; -fx-padding: 5 14;" />
-                    <Button text="New"
-                            style="-fx-background-color: #5C3B8C; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 18; -fx-padding: 5 14;" />
+                    <Button style="-fx-background-color: #cccccc; -fx-text-fill: black; -fx-background-radius: 5; -fx-font-size: 18; -fx-padding: 5 14;" text="Archive" />
+                    <Button style="-fx-background-color: #5C3B8C; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 18; -fx-padding: 5 14;" text="New" />
                 </HBox>
             </HBox>
 
