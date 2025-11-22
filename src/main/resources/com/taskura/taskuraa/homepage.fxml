@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.taskura.taskuraa.HomepageController"
+            prefWidth="1200" prefHeight="700"
+            style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #ffffff 0%, #f8f0ff 20%, #f0e0f7 35%, #3a2740 85%);">
+
+    <!-- Title -->
+    <Label text="TASKURA"
+           layoutX="350" layoutY="40"
+           prefWidth="500"
+           alignment="CENTER"
+           style="-fx-font-size:48px; -fx-font-weight:bold; -fx-text-fill:#2b1328; -fx-letter-spacing:6px;"/>
+
+    <!-- Login Card -->
+    <AnchorPane layoutX="140" layoutY="150" prefWidth="920" prefHeight="330">
+        <children>
+            <VBox spacing="18" alignment="TOP_LEFT"
+                  AnchorPane.leftAnchor="0"
+                  AnchorPane.rightAnchor="0"
+                  AnchorPane.topAnchor="0"
+                  AnchorPane.bottomAnchor="0"
+                  style="-fx-background-color: rgba(245,217,255,0.95); -fx-background-radius:12; -fx-padding:26; -fx-effect:dropshadow(two-pass-box, rgba(0,0,0,0.12), 18, 0, 0, 6);">
+
+                <!-- Label -->
+                <Label text="What Should we call you?"
+                       style="-fx-font-size:16px; -fx-text-fill:#241124; -fx-font-weight:500;"/>
+
+                <!-- Username -->
+                <TextField fx:id="usernameField"
+                           promptText="Enter your name"
+                           prefWidth="760" prefHeight="36"
+                           style="-fx-background-color:white; -fx-background-radius:20; -fx-border-radius:20; -fx-padding:0 16 0 16; -fx-font-size:14px;"/>
+
+                <!-- Role Label -->
+                <Label text="What best describes your role?"
+                       style="-fx-font-size:16px; -fx-text-fill:#241124; -fx-font-weight:500;"/>
+
+                <!-- Role ChoiceBox -->
+                <ChoiceBox fx:id="roleChoice"
+                           prefWidth="760" prefHeight="36"
+                           style="-fx-background-color:white; -fx-background-radius:20; -fx-border-radius:20; -fx-padding:0 12 0 12; -fx-font-size:14px;"/>
+
+                <Region prefHeight="6"/>
+
+                <!-- Enter Button -->
+                <Button fx:id="enterBtn" text="Enter"
+                        prefWidth="820" prefHeight="40"
+                        onAction="#onEnter"
+                        style="-fx-background-color:#2b2330; -fx-text-fill:white; -fx-background-radius:8; -fx-font-weight:600; -fx-font-size:14px; -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.25), 3, 0.0, 0, 2);"/>
+
+            </VBox>
+        </children>
+    </AnchorPane>
+
+</AnchorPane>
