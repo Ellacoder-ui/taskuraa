@@ -1,53 +1,38 @@
 package com.taskura.taskuraa;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+public class LoginController {
 
-public class LoginController implements Initializable {
+    @FXML private TextField nameField;
 
-    @FXML
-    private TextField nameField;
+    private Stage stage;
 
-    @FXML
-    private ComboBox<String> roleComboBox;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> roles = FXCollections.observableArrayList(
-                "Student",
-                "Teacher",
-                "Professional",
-                "Other"
-        );
-        roleComboBox.setItems(roles);
-        roleComboBox.getSelectionModel().select("Student");
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
     @FXML
-    protected void handleEnterButton() {
+    private void handleEnterButton() {
+        String username = nameField.getText().trim();
+        if (username.isEmpty()) username = "Guest";
+
         try {
-            // Load homepage.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage.fxml"));
-            Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+            BorderPane root = loader.load();
 
-            // Switch window scene
-            Stage stage = (Stage) nameField.getScene().getWindow();
-            stage.setScene(new Scene(root, 1200, 700));
-            stage.show();
+            HomeController controller = loader.getController();
+            controller.setUsername(username);
 
-        } catch (IOException e) {
+            stage.setScene(new Scene(root));
+            stage.setTitle("Taskura - Home");
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

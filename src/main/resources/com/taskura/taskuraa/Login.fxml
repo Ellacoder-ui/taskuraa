@@ -5,68 +5,38 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1000.0"
+<VBox alignment="TOP_CENTER"
       style="-fx-background-color: #f7f7f7;"
       xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.taskura.taskuraa.LoginController">
 
-    <children>
-        <Label text="TASKURA" textFill="#4d004d" textAlignment="CENTER" lineSpacing="40.0">
-            <font>
-                <Font name="System Bold" size="66.0" />
-            </font>
-            <VBox.margin><Insets top="50.0" /></VBox.margin>
-        </Label>
+    <Label text="TASKURA" textFill="#4d004d" alignment="CENTER">
+        <font><Font name="System Bold" size="66"/></font>
+        <VBox.margin><Insets top="50"/></VBox.margin>
+    </Label>
 
-        <StackPane VBox.vgrow="ALWAYS">
-            <children>
-                <VBox alignment="CENTER" maxWidth="500.0" style="-fx-background-color: #e5ccff; -fx-background-radius: 15;">
-                    <children>
+    <StackPane VBox.vgrow="ALWAYS">
+        <VBox alignment="CENTER" maxWidth="500" style="-fx-background-color: #e5ccff; -fx-background-radius: 15;">
+            <VBox alignment="CENTER_LEFT" spacing="10">
+                <padding><Insets top="0" right="0" bottom="10" left="0"/></padding>
+                <Label text="What should we call you?" textFill="#330033">
+                    <font><Font size="18"/></font>
+                </Label>
+                <TextField fx:id="nameField" prefHeight="35" prefWidth="460" promptText="Enter your name"/>
+            </VBox>
 
-                        <!-- Name Field -->
-                        <VBox alignment="CENTER_LEFT" spacing="10.0">
-                            <children>
-                                <Label text="What should we call you?" textFill="#330033">
-                                    <font><Font size="18.0" /></font>
-                                </Label>
-                                <HBox alignment="CENTER_LEFT">
-                                    <children>
-                                        <TextField fx:id="nameField" prefHeight="35.0" prefWidth="460.0"
-                                                   promptText="Enter your name" />
-                                    </children>
-                                </HBox>
-                            </children>
-                            <VBox.margin><Insets bottom="10.0" /></VBox.margin>
-                        </VBox>
+            <Button fx:id="EnterBtn" text="Enter" textFill="WHITE"
+                    prefHeight="40" prefWidth="460"
+                    style="-fx-background-color: #333333; -fx-background-radius: 5;"
+                    onAction="#handleEnterButton">
+                <font><Font size="18"/></font>
+            </Button>
 
-                        <!-- Role ComboBox -->
-                        <VBox alignment="CENTER_LEFT" spacing="10.0">
-                            <children>
-                                <Label text="What best describes your role?" textFill="#330033">
-                                    <font><Font size="18.0" /></font>
-                                </Label>
-                                <ComboBox fx:id="roleComboBox" prefHeight="35.0" prefWidth="460.0"
-                                          promptText="Student"/>
-                            </children>
-                            <VBox.margin><Insets bottom="30.0" /></VBox.margin>
-                        </VBox>
+            <padding><Insets bottom="20" left="20" right="20"/></padding>
+            <VBox.margin><Insets top="60"/></VBox.margin>
+        </VBox>
+    </StackPane>
 
-                        <!-- Enter Button -->
-                        <Button fx:id="EnterBtn"
-                                onAction="#handleEnterButton"
-                                prefHeight="40.0" prefWidth="460.0"
-                                style="-fx-background-color: #333333; -fx-background-radius: 5;"
-                                text="Enter" textFill="WHITE">
-                            <font><Font size="18.0" /></font>
-                        </Button>
-
-                    </children>
-                    <padding><Insets bottom="20.0" left="20.0" right="20.0" /></padding>
-                    <StackPane.margin><Insets top="60.0" /></StackPane.margin>
-                </VBox>
-            </children>
-        </StackPane>
-    </children>
-    <padding><Insets bottom="50.0" left="50.0" right="50.0" top="50.0" /></padding>
+    <padding><Insets top="50" right="50" bottom="50" left="50"/></padding>
 </VBox>
