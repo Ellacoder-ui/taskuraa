@@ -11,6 +11,7 @@ module com.taskura.taskuraa {
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
     requires javafx.base;
+    requires com.calendarfx.view;
 
     opens com.taskura.taskuraa to javafx.fxml;
     exports com.taskura.taskuraa;

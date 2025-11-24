@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>com.calendarfx</groupId>
-            <artifactId>calendar</artifactId>
+            <artifactId>view</artifactId>
             <version>12.0.1</version> <!-- Use the latest stable version -->
         </dependency>
 
@@ -124,7 +124,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.taskura.taskuraa/com.taskura.taskuraa.HelloApplication</mainClass>
+                            <mainClass>com.taskura.taskuraa/com.taskura.taskuraa.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
