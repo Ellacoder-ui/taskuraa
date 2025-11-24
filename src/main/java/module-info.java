@@ -10,6 +10,7 @@ module com.taskura.taskuraa {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
+    requires javafx.base;
 
     opens com.taskura.taskuraa to javafx.fxml;
     exports com.taskura.taskuraa;

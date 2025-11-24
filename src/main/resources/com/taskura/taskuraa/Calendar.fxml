@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.taskura.taskuraa.CalendarController"
+            prefWidth="1200" prefHeight="700" style="-fx-background-color: white;">
+    <top>
+        <HBox style="-fx-background-color: #3a2740; -fx-padding: 14;">
+            <Label text="TASKURA" style="-fx-text-fill: white; -fx-font-size:26px; -fx-font-weight:700;" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel" text="Hi, User" style="-fx-text-fill: white; -fx-font-size:14px;"/>
+            <Region prefWidth="10"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="12" style="-fx-background-color: #f7f5f8; -fx-padding:16;" prefWidth="220">
+            <VBox alignment="CENTER_LEFT" spacing="6">
+                <Label fx:id="leftNameLabel" text="Mike T." style="-fx-font-weight:700; -fx-font-size:14px;"/>
+                <Label fx:id="leftRoleLabel" text="Student" style="-fx-text-fill: #777777; -fx-font-size:12px;"/>
+            </VBox>
+            <Separator/>
+
+            <VBox spacing="8">
+                <Button fx:id="homeBtn" prefWidth="200" onAction="#onHome"
+                        style="-fx-background-color: #eef2f6; -fx-background-radius:8; -fx-padding:8 12;">
+                    <graphic>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="⌂" style="-fx-font-size:18px; -fx-text-fill:#8a8692;"/>
+                            <Label text="Home" style="-fx-font-weight:700; -fx-font-size:14px; -fx-text-fill:#8a8692;"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="calendarBtn" prefWidth="200" onAction="#onCalendar"
+                        style="-fx-background-color: transparent; -fx-padding:8 12;">
+                    <graphic>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="📅" style="-fx-font-size:18px; -fx-text-fill:#2f2f33;"/>
+                            <Label text="Calendar" style="-fx-font-weight:600; -fx-font-size:14px; -fx-text-fill:#2f2f33;"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="tasksBtn" prefWidth="200" onAction="#onTasks"
+                        style="-fx-background-color: transparent; -fx-padding:8 12;">
+                    <graphic>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="☑" style="-fx-font-size:18px; -fx-text-fill:#8a8692;"/>
+                            <Label text="Tasks" style="-fx-font-weight:600; -fx-font-size:14px; -fx-text-fill:#8a8692;"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+
+            </VBox>
+        </VBox>
+    </left>
+</BorderPane>

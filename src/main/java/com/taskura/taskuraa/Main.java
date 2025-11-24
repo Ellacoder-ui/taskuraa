@@ -9,7 +9,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/taskura/taskuraa/homepage.fxml")
+                getClass().getResource("/com/taskura/taskuraa/Login.fxml")
         );
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);

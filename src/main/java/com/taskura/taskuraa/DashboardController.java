@@ -132,12 +132,23 @@ public class DashboardController {
     }
 
     @FXML
-    private void onCalendar(ActionEvent e) {
-        setSelectedNavButton(calendarBtn);
-        Alert a = new Alert(Alert.AlertType.INFORMATION, "Calendar view is not implemented in this demo.", ButtonType.OK);
-        a.initOwner(taskListView.getScene().getWindow());
-        a.setHeaderText("Calendar");
-        a.showAndWait();
+    private void onCalendar() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/taskura/taskuraa/Calendar.fxml")
+            );
+            Parent root = loader.load();
+
+            CalendarController ctrl = loader.getController();
+            ctrl.setUser(this.user);
+
+            Stage stage = (Stage) calendarBtn.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Taskura - Calendar");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
