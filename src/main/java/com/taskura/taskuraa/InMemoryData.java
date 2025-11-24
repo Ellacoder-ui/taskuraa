@@ -5,16 +5,34 @@ import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 
+/**
+ * Simple in-memory store. Holds TASKS and ARCHIVES lists.
+ */
 public class InMemoryData {
     public static final ObservableList<User> USERS = FXCollections.observableArrayList();
     public static final ObservableList<Task> TASKS = FXCollections.observableArrayList();
+    public static final ObservableList<Task> ARCHIVES = FXCollections.observableArrayList();
 
     static {
-        // Sample tasks for demonstration. You can remove or replace these with your real app data.
-        TASKS.add(new Task("t1", "Finish your tasks today", "Built-in reminder: wrap up your tasks before the day ends.", LocalDate.now(), false));
-        TASKS.add(new Task("t2", "Finish Activity 1 today!", "Complete Activity 1 — this is your most urgent task.", LocalDate.now().plusDays(1), false));
-        TASKS.add(new Task("t3", "Developing", "Continue development tasks and review PRs.", LocalDate.now().plusDays(4), false));
-        TASKS.add(new Task("t4", "Project 1", "Draft project 1 documentation.", LocalDate.now().plusDays(7), false));
-        TASKS.add(new Task("t5", "OOP Assignment", "Finish object-oriented assignment for school.", LocalDate.now().plusDays(3), true));
+        // Sample tasks. Set explicit tag for visual consistency.
+        TASKS.add(new Task("t1", "Finish your tasks today",
+                "Built-in reminder: wrap up your tasks before the day ends.",
+                LocalDate.now(), false, "green"));
+
+        TASKS.add(new Task("t2", "Finish Activity 1 today!",
+                "Complete Activity 1 — this is your most urgent task.",
+                LocalDate.now().plusDays(1), false, "red"));
+
+        TASKS.add(new Task("t3", "Developing",
+                "Continue development tasks and review PRs.",
+                LocalDate.now().plusDays(4), false, "green"));
+
+        TASKS.add(new Task("t4", "Project 1",
+                "Draft project 1 documentation.",
+                LocalDate.now().plusDays(7), false, "green"));
+
+        TASKS.add(new Task("t5", "OOP Assignment",
+                "Finish object-oriented assignment for school.",
+                LocalDate.now().plusDays(3), true, "orange"));
     }
 }

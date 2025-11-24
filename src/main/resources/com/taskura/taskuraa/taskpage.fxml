@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.taskura.taskuraa.TaskPageController"
+            prefWidth="1200" prefHeight="700" style="-fx-background-color: white;">
+
+    <top>
+        <HBox style="-fx-background-color: #3a2740; -fx-padding: 14;">
+            <Label text="TASKURA" style="-fx-text-fill: white; -fx-font-size:26px; -fx-font-weight:700;" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel" text="Hi, User" style="-fx-text-fill: white; -fx-font-size:14px;"/>
+            <Region prefWidth="10"/>
+        </HBox>
+    </top>
+
+    <left>
+        <!-- Left navigation area (Home / Calendar / Tasks) -->
+        <VBox spacing="12" style="-fx-background-color: #f7f5f8; -fx-padding:16;" prefWidth="220">
+            <VBox alignment="CENTER_LEFT" spacing="6">
+                <Label fx:id="leftNameLabel" text="User" style="-fx-font-weight:700; -fx-font-size:14px;"/>
+                <Label fx:id="leftRoleLabel" text="Role" style="-fx-text-fill: #777777; -fx-font-size:12px;"/>
+            </VBox>
+            <Separator/>
+            <VBox spacing="8">
+                <Button fx:id="homeBtn" prefWidth="200" onAction="#goHome"
+                        style="-fx-background-color: transparent; -fx-padding:8 12;">
+                    <graphic>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="⌂" style="-fx-font-size:18px; -fx-text-fill:#6b6b6b;"/>
+                            <Label text="Home" style="-fx-font-weight:600; -fx-font-size:14px; -fx-text-fill:#2f2f33;"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="calendarBtn" prefWidth="200" onAction="#goCalendar"
+                        style="-fx-background-color: transparent; -fx-padding:8 12;">
+                    <graphic>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="📅" style="-fx-font-size:18px; -fx-text-fill:#8a8692;"/>
+                            <Label text="Calendar" style="-fx-font-weight:600; -fx-font-size:14px; -fx-text-fill:#8a8692;"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="tasksBtn" prefWidth="200" onAction="#onTasks"
+                        style="-fx-background-color:#eef2f6; -fx-background-radius:8; -fx-padding:8 12;">
+                    <graphic>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="☑" style="-fx-font-size:18px; -fx-text-fill:#2f2f33;"/>
+                            <Label text="Tasks" style="-fx-font-weight:700; -fx-font-size:14px; -fx-text-fill:#2f2f33;"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="12" style="-fx-padding: 18;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label fx:id="pageTitle" text="Tasks" style="-fx-font-weight:700; -fx-font-size:18px;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="archivePageBtn" text="Archives" onAction="#openArchives" style="-fx-background-radius:6;"/>
+                <Button fx:id="addTaskBtn" text="+ Add Task" onAction="#onAddTask" style="-fx-background-radius:6;"/>
+            </HBox>
+
+            <HBox spacing="12">
+                <!-- Left: list and search -->
+                <VBox spacing="8" prefWidth="560">
+                    <TextField fx:id="searchField" promptText="Search tasks" />
+                    <ListView fx:id="taskListView" prefHeight="520"/>
+                </VBox>
+
+                <!-- Right: preview / edit pane (styled like Home details) -->
+                <VBox spacing="8" style="-fx-padding:12; -fx-border-color: #e9e9e9; -fx-border-width:1; -fx-border-radius:8;" prefWidth="360" prefHeight="520">
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label text="Task Preview" style="-fx-font-weight:700; -fx-font-size:14px;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <!-- Edit button: enables editing mode -->
+                        <Button fx:id="editBtn" text="Edit" onAction="#onEdit" />
+                    </HBox>
+
+                    <!-- Mirror of Home detail: colored tag + textual label -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Rectangle fx:id="tagRect" width="18" height="18" style="-fx-fill: #6bd26b; -fx-arc-width:8; -fx-arc-height:8;"/>
+                        <Label fx:id="tagLabel" text=""/>
+                    </HBox>
+
+                    <!-- VIEW MODE: plain text labels (headings removed as requested) -->
+                    <Label fx:id="viewTitleLabel" style="-fx-font-weight:600; -fx-font-size:13px;"/>
+                    <Label fx:id="viewDescLabel" wrapText="true" maxWidth="320" style="-fx-text-fill: #333;"/>
+                    <Label fx:id="viewDeadlineLabel" style="-fx-text-fill:#666;"/>
+
+                    <!-- EDIT CONTROLS: hidden until edit mode -->
+                    <TextField fx:id="titleField" visible="false" managed="false"/>
+                    <TextArea fx:id="descArea" prefRowCount="6" wrapText="true" visible="false" managed="false"/>
+                    <DatePicker fx:id="deadlinePicker" visible="false" managed="false"/>
+                    <ChoiceBox fx:id="colorChoice" visible="false" managed="false"/>
+
+                    <HBox spacing="8">
+                        <!-- Save button is hidden until editing starts -->
+                        <Button fx:id="saveBtn" text="Save" onAction="#onSave" visible="false" managed="false"/>
+                        <Button fx:id="deleteBtn" text="Delete" onAction="#onDelete"/>
+                        <Button fx:id="archiveBtn" text="Archive" onAction="#onArchive"/>
+                    </HBox>
+
+                    <Region/>
+                    <Label fx:id="statusLabel" text="" style="-fx-text-fill: #666;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

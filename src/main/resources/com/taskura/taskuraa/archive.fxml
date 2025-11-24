@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.taskura.taskuraa.ArchiveController"
+            prefWidth="1200" prefHeight="700" style="-fx-background-color: white;">
+    <top>
+        <HBox style="-fx-background-color: #3a2740; -fx-padding: 14;">
+            <Label text="TASKURA" style="-fx-text-fill: white; -fx-font-size:26px; -fx-font-weight:700;" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel" text="Hi, User" style="-fx-text-fill: white; -fx-font-size:14px;"/>
+            <Region prefWidth="8"/>
+        </HBox>
+    </top>
+
+    <!-- Place a small arrow-only back button directly under the purple header (aligned to the right) -->
+    <center>
+        <VBox spacing="12" style="-fx-padding: 18;">
+            <HBox alignment="CENTER_RIGHT">
+                <!-- Arrow-only back button placed under the header -->
+                <Button fx:id="backBtn" text="←" onAction="#onBack" style="-fx-font-size:16px; -fx-background-radius:6;" />
+            </HBox>
+
+            <HBox spacing="12">
+                <VBox spacing="8" prefWidth="560">
+                    <Label text="Archives" style="-fx-font-weight:700; -fx-font-size:18px;"/>
+                    <ListView fx:id="archiveListView" prefHeight="560"/>
+                </VBox>
+
+                <!-- Right details pane: this will be hidden (not managed) when archives list is empty -->
+                <VBox fx:id="detailsPane" spacing="8" style="-fx-padding:12; -fx-border-color: #e9e9e9; -fx-border-width:1; -fx-border-radius:8;" prefWidth="360" prefHeight="560">
+                    <Label text="Archive Details" style="-fx-font-weight:700; -fx-font-size:14px;"/>
+                    <Label text="Title" />
+                    <!-- view-only label: users cannot edit archived task title -->
+                    <Label fx:id="aTitleLabel" wrapText="true" style="-fx-font-weight:600;"/>
+                    <Label text="Description" />
+                    <!-- view-only label for description -->
+                    <Label fx:id="aDescLabel" wrapText="true" maxWidth="320"/>
+                    <Label text="Deadline"/>
+                    <Label fx:id="aDeadlineLabel" text=""/>
+                    <HBox spacing="8">
+                        <Button fx:id="restoreBtn" text="Restore" onAction="#onRestore"/>
+                        <Button fx:id="deletePermanentBtn" text="Delete Permanently" onAction="#onDeletePermanent"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+    <left>
+        <VBox spacing="12" style="-fx-background-color: #f7f5f8; -fx-padding:16;" prefWidth="220">
+            <VBox alignment="CENTER_LEFT" spacing="6">
+                <Label fx:id="leftNameLabel" text="User" style="-fx-font-weight:700; -fx-font-size:14px;"/>
+                <Label fx:id="leftRoleLabel" text="Role" style="-fx-text-fill: #777777; -fx-font-size:12px;"/>
+            </VBox>
+            <Separator/>
+            <!-- No navigation buttons here (Home removed) -->
+        </VBox>
+    </left>
+</BorderPane>
